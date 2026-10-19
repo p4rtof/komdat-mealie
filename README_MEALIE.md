@@ -20,3 +20,11 @@ Bagian ini menjelaskan langkah-langkah untuk menginstal Mealie di Virtual Machin
    mkdir -p ~/meali
    cd ~/mealie   
 
+## Konfigurasi
+[^ kembali ke atas ^](#aplikasi-web-mealie)
+
+Konfigurasi Mealie diatur di dua tempat: file `docker-compose.yml` di server, dan menu admin di dalam aplikasi. Setiap perubahan pada file `docker-compose.yml` dijalankan dengan perintah berikut. Docker akan membuat ulang container dengan konfigurasi baru, sedangkan data aplikasi tetap aman karena tersimpan di volume.
+
+```
+$ docker compose up -d
+```
