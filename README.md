@@ -241,6 +241,8 @@ Pengguna dapat memasukkan informasi resep melalui formulir yang tersedia, termas
 
 Pengguna dapat memasukkan URL halaman resep dari situs web. Setelah URL diproses, pengguna dapat meninjau ringkasan hasil parsing dan memeriksa bahan-bahan yang dikenali sebelum melihat hasil impor di aplikasi.
 
+Pada pengujian ini, URL resep **Es Teler** dari [Cookpad](https://cookpad.com/id/resep/26277768) digunakan sebagai sumber impor.
+
 1. Memasukkan URL resep:
 
    ![Memasukkan URL resep](./Screenshots/Import%20URL/mealie-import-url.png)
@@ -261,21 +263,21 @@ Pengguna dapat memasukkan URL halaman resep dari situs web. Setelah URL diproses
 
 Selain melihat, membuat, dan mengimpor resep, Mealie menyediakan fitur pendukung untuk membantu pengguna mengatur resep serta merencanakan aktivitas memasak.
 
-#### a. Recipe Finder
+#### a. Recipes
 
-Recipe Finder membantu pengguna menemukan resep yang tersedia di dalam aplikasi.
+Menu Recipes menampilkan resep yang tersimpan di Mealie. Pengguna dapat membuka resep untuk melihat bahan dan langkah pembuatannya.
+
+![Detail resep di Mealie](./Screenshots/Melihat%20dan%20menambahkan%20resep/mealie-recipe-detail.png)
+
+#### b. Recipe Finder
+
+Recipe Finder membantu pengguna mencari resep yang tersedia di dalam aplikasi.
 
 ![Recipe Finder](./Screenshots/Fitur%20Pendukung/mealie-recipe-finder.png)
 
-#### b. Cookbooks
-
-Cookbooks menampilkan kumpulan resep yang disusun dalam buku resep.
-
-![Cookbooks](./Screenshots/Fitur%20Pendukung/mealie-cookbooks.png)
-
 #### c. Meal Planner
 
-Meal Planner digunakan untuk melihat dan merencanakan menu makanan berdasarkan jadwal.
+Meal Planner digunakan untuk menyusun dan melihat rencana menu berdasarkan jadwal.
 
 ![Meal Planner](./Screenshots/Fitur%20Pendukung/mealie-meal-planner.png)
 
@@ -285,7 +287,19 @@ Shopping Lists membantu pengguna menyusun daftar belanja bahan makanan.
 
 ![Shopping Lists](./Screenshots/Fitur%20Pendukung/mealie-shopping-lists.png)
 
-#### e. Organizers
+#### e. Timeline
+
+Timeline menampilkan informasi aktivitas berdasarkan urutan waktu sesuai informasi yang tersedia di aplikasi.
+
+![Timeline](./Screenshots/Fitur%20Pendukung/mealie-timeline.png)
+
+#### f. Cookbooks
+
+Cookbooks menampilkan kumpulan resep yang disusun dalam buku resep.
+
+![Cookbooks](./Screenshots/Fitur%20Pendukung/mealie-cookbooks.png)
+
+#### g. Organizers
 
 Organizers menyediakan halaman Categories, Tags, dan Tools untuk mengatur informasi resep.
 
@@ -300,12 +314,6 @@ Organizers menyediakan halaman Categories, Tags, dan Tools untuk mengatur inform
 **Tools**
 
 ![Tools](./Screenshots/Fitur%20Pendukung/mealie-organizers-tools.png)
-
-#### f. Timeline
-
-Timeline menampilkan informasi aktivitas berdasarkan urutan waktu sesuai informasi yang tersedia di aplikasi.
-
-![Timeline](./Screenshots/Fitur%20Pendukung/mealie-timeline.png)
 
 ## Otomatisasi
 
