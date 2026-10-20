@@ -367,7 +367,7 @@ Artinya backup dijalankan **setiap hari pukul 02.00** (mengikuti jam server), da
 crontab -l
 ```
 
-## Catatan
+### Catatan
 
 - Untuk menguji cron tanpa menunggu pukul 02.00, ubah jadwal sementara menjadi `* * * * *` (tiap menit), cek `ls -lh ~/mealie-backup`, lalu kembalikan ke `0 2 * * *`.
 - Salinan backup sebaiknya juga disimpan di luar server, misalnya diunduh dengan `scp`.
