@@ -7,18 +7,68 @@
 - Nadine Putri Agustin (M0403241041)
 - Fahira Fasya (M0403241071)
 
+## **Sekilas Tentang**
+
+Mealie adalah aplikasi manajemen resep (recipe manager) dan perencanaan menu makanan (meal planner) berbasis web yang bersifat open-source dan self-hosted. Aplikasi ini dirancang menggunakan arsitektur modern dengan FastAPI (Python) pada sisi backend dan Vue.js pada sisi frontend.
+Fitur utama Mealie meliputi kemampuan impor resep otomatis hanya dengan, pembuatan rencana makan mingguan secara dinamis, otomatisasi daftar belanjaan, 
+
+
 ## 1. Dokumentasi Instalasi (VM Lokal)
 Bagian ini menjelaskan langkah-langkah untuk menginstal Mealie di Virtual Machine lokal.
 
 ### Kebutuhan Sistem
-- [Sebutkan OS atau sistem seperti Docker yang digunakan]
+- VPS berbasis ubuntu
+- Docker versi 20.10.21
+- Nginx Proxy Manager
+- DNS provider
+  
 
 ### Langkah-langkah Instalasi
-1. **Siapkan Direktori Proyek**
+1. **Masuk ke VPS dengan ssh**
+``` ssh root@103.160.213.51 ```
+   
+
+2. **Siapkan Direktori Proyek**
    Pertama, buat direktori khusus untuk menyimpan konfigurasi dan data aplikasi Mealie, lalu masuk ke direktori tersebut.
    ```bash
    mkdir -p ~/meali
-   cd ~/mealie   
+   cd ~/mealie
+
+3. **Buat file konfigurasi**
+   ```nano docker-compose.yml```
+
+4. **Isi file docker-compose.yml**
+   ```
+      version: '3'
+
+   services:'
+      mealie:
+       image: ghcr.io/mealie-recipes/mealie:latest
+       container_name: mealie
+       restart: always
+       ports:
+         - "9000:9000"
+       volumes:
+         - mealie-data:/app/data/
+       environment:
+         - ALLOW_SIGNUP=true
+         - PUID=1000
+         - PGID=1000
+         - TZ=Asia/Jakarta
+         - BASE_URL=http://mealie.fatihost.web.id
+
+   volumes:
+      mealie-data:
+
+   ```
+
+5. **Mengatur DNS (Domain Name System)**
+
+   
+6. **jalankan container Docker**
+   ```docker-compose up -d```
+   
+7**Mengarahkan domain ke port website dengan Nginx Proxy Manager**
 
 ## Konfigurasi
 [^ kembali ke atas ^](#)
@@ -41,7 +91,7 @@ Bagian ini menjelaskan langkah-langkah untuk menginstal Mealie di Virtual Machin
          - PUID=1000
          - PGID=1000
          - TZ=Asia/Jakarta
-         - BASE_URL=http://localhost:9000
+         - BASE_URL=http://mealie.fatihost.web.id
 
    volumes:
       mealie-data:
