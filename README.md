@@ -315,7 +315,7 @@ Organizers menyediakan halaman Categories, Tags, dan Tools untuk mengatur inform
 
 ![Tools](./Screenshots/Fitur%20Pendukung/mealie-organizers-tools.png)
 
-# Otomatisasi Mealie
+## Otomatisasi
 
 Agar pengelolaan Mealie tidak perlu mengetik perintah berulang kali, tersedia dua script shell:
 
