@@ -1,6 +1,11 @@
+<p align="center">
+  <img src="./Screenshots/Logo%20Mealie.png" alt="Logo Mealie" width="150">
+</p>
+
 # Laporan Proyek Akhir: Instalasi Mealie
 
-**Mata Kuliah:** Komunikasi Data dan Jaringan Komputer (KDJK) · **Kelompok:** 7
+**Mata Kuliah:** Komunikasi Data dan Jaringan Komputer (KDJK)  
+**Kelompok:** 7
 
 | NIM | Nama |
 | --- | --- |
@@ -196,19 +201,19 @@ Mealie merupakan aplikasi manajemen resep berbasis web yang memudahkan pengguna 
 
 Pengguna yang telah memiliki akun dapat masuk ke aplikasi Mealie melalui halaman login.
 
-![Halaman Login Mealie](./Images/Login%20dan%20akses%20awal/mealie-login.png)
+![Halaman Login Mealie](./Screenshots/Login%20dan%20akses%20awal/mealie-login.png)
 
 #### b. Registrasi dan Akses Grup
 
 Pengguna yang belum memiliki akun dapat melakukan registrasi melalui halaman yang tersedia. Pada halaman tersebut, pengguna dapat memilih **Join a Group** untuk bergabung dengan grup atau **Create a New Group** untuk membuat grup baru.
 
-![Halaman Registrasi Mealie](./Images/Login%20dan%20akses%20awal/mealie-registration.png)
+![Halaman Registrasi Mealie](./Screenshots/Login%20dan%20akses%20awal/mealie-registration.png)
 
 #### c. Dashboard
 
 Setelah berhasil masuk, pengguna akan diarahkan ke dashboard sebagai halaman utama untuk mengakses fitur Mealie.
 
-![Dashboard Mealie](./Images/Login%20dan%20akses%20awal/mealie-dashboard.png)
+![Dashboard Mealie](./Screenshots/Login%20dan%20akses%20awal/mealie-dashboard.png)
 
 ### 2. Melihat dan Menambahkan Resep
 
@@ -216,21 +221,21 @@ Setelah berhasil masuk, pengguna akan diarahkan ke dashboard sebagai halaman uta
 
 Pengguna dapat membuka resep yang tersedia untuk melihat informasi resep, termasuk bahan-bahan dan langkah pembuatannya.
 
-![Detail Resep](./Images/Melihat%20dan%20menambahkan%20resep/mealie-recipe-detail.png)
+![Detail Resep](./Screenshots/Melihat%20dan%20menambahkan%20resep/mealie-recipe-detail.png)
 
 #### b. Memilih Metode Penambahan Resep
 
 Melalui menu **Create**, pengguna dapat memilih untuk membuat resep secara manual atau mengimpor resep menggunakan URL.
 
-![Menu Metode Pembuatan Resep](./Images/Melihat%20dan%20menambahkan%20resep/mealie-metode-create-menu.png)
+![Menu Metode Pembuatan Resep](./Screenshots/Melihat%20dan%20menambahkan%20resep/mealie-metode-create-menu.png)
 
 #### c. Membuat Resep Secara Manual
 
 Pengguna dapat memasukkan informasi resep melalui formulir yang tersedia, termasuk bahan-bahan yang dibutuhkan.
 
-![Form Penambahan Resep](./Images/Melihat%20dan%20menambahkan%20resep/mealie-add-recipe.png)
+![Form Penambahan Resep](./Screenshots/Melihat%20dan%20menambahkan%20resep/mealie-add-recipe.png)
 
-![Form Bahan Resep Manual](./Images/Melihat%20dan%20menambahkan%20resep/mealie-create-manual-ingredients.png)
+![Form Bahan Resep Manual](./Screenshots/Melihat%20dan%20menambahkan%20resep/mealie-create-manual-ingredients.png)
 
 #### d. Mengimpor Resep dari URL
 
@@ -238,19 +243,19 @@ Pengguna dapat memasukkan URL halaman resep dari situs web. Setelah URL diproses
 
 1. Memasukkan URL resep:
 
-   ![Memasukkan URL resep](./Images/Import%20URL/mealie-import-url.png)
+   ![Memasukkan URL resep](./Screenshots/Import%20URL/mealie-import-url.png)
 
 2. Meninjau ringkasan hasil parsing:
 
-   ![Ringkasan hasil parsing resep](./Images/Import%20URL/mealie-import-parsed-summary.png)
+   ![Ringkasan hasil parsing resep](./Screenshots/Import%20URL/mealie-import-parsed-summary.png)
 
 3. Memeriksa bahan resep:
 
-   ![Meninjau bahan resep](./Images/Import%20URL/mealie-import-ingredient-review.png)
+   ![Meninjau bahan resep](./Screenshots/Import%20URL/mealie-import-ingredient-review.png)
 
 4. Melihat hasil impor:
 
-   ![Hasil resep yang diimpor](./Images/Import%20URL/mealie-import-recipe-result.png)
+   ![Hasil resep yang diimpor](./Screenshots/Import%20URL/mealie-import-recipe-result.png)
 
 ### 3. Fitur Pendukung
 
@@ -260,25 +265,25 @@ Selain melihat, membuat, dan mengimpor resep, Mealie menyediakan fitur pendukung
 
 Recipe Finder membantu pengguna menemukan resep yang tersedia di dalam aplikasi.
 
-![Recipe Finder](./Images/Fitur%20Pendukung/mealie-recipe-finder.png)
+![Recipe Finder](./Screenshots/Fitur%20Pendukung/mealie-recipe-finder.png)
 
 #### b. Cookbooks
 
 Cookbooks menampilkan kumpulan resep yang disusun dalam buku resep.
 
-![Cookbooks](./Images/Fitur%20Pendukung/mealie-cookbooks.png)
+![Cookbooks](./Screenshots/Fitur%20Pendukung/mealie-cookbooks.png)
 
 #### c. Meal Planner
 
 Meal Planner digunakan untuk melihat dan merencanakan menu makanan berdasarkan jadwal.
 
-![Meal Planner](./Images/Fitur%20Pendukung/mealie-meal-planner.png)
+![Meal Planner](./Screenshots/Fitur%20Pendukung/mealie-meal-planner.png)
 
 #### d. Shopping Lists
 
 Shopping Lists membantu pengguna menyusun daftar belanja bahan makanan.
 
-![Shopping Lists](./Images/Fitur%20Pendukung/mealie-shopping-lists.png)
+![Shopping Lists](./Screenshots/Fitur%20Pendukung/mealie-shopping-lists.png)
 
 #### e. Organizers
 
@@ -286,21 +291,21 @@ Organizers menyediakan halaman Categories, Tags, dan Tools untuk mengatur inform
 
 **Categories**
 
-![Categories](./Images/Fitur%20Pendukung/mealie-organizers-categories.png)
+![Categories](./Screenshots/Fitur%20Pendukung/mealie-organizers-categories.png)
 
 **Tags**
 
-![Tags](./Images/Fitur%20Pendukung/mealie-organizers-tags.png)
+![Tags](./Screenshots/Fitur%20Pendukung/mealie-organizers-tags.png)
 
 **Tools**
 
-![Tools](./Images/Fitur%20Pendukung/mealie-organizers-tools.png)
+![Tools](./Screenshots/Fitur%20Pendukung/mealie-organizers-tools.png)
 
 #### f. Timeline
 
 Timeline menampilkan informasi aktivitas berdasarkan urutan waktu sesuai informasi yang tersedia di aplikasi.
 
-![Timeline](./Images/Fitur%20Pendukung/mealie-timeline.png)
+![Timeline](./Screenshots/Fitur%20Pendukung/mealie-timeline.png)
 
 ## Otomatisasi
 
