@@ -322,7 +322,7 @@ Agar pengelolaan Mealie tidak perlu mengetik perintah berulang kali, tersedia du
 - `mealie-manage.sh`: menu interaktif untuk menjalankan, menghentikan, memeriksa, mem-backup, dan me-restore Mealie.
 - `mealie-backup.sh`: backup otomatis tanpa menu (dijalankan oleh cron). Yang dicadangkan adalah folder `data` dan file `compose.yaml`, disimpan di `~/mealie-backup`. Backup yang lebih tua dari 7 hari dihapus otomatis.
 
-## Script Pengelolaan Interaktif
+### 1. Script Pengelolaan Interaktif
 
 Salin kedua script ke direktori `~/mealie`, lalu beri izin eksekusi dan jalankan:
 
@@ -346,7 +346,7 @@ Menu yang tersedia:
 | 8 | Restore dari backup |
 | 0 | Keluar |
 
-## Backup Otomatis dengan Cron
+### 2. Backup Otomatis dengan Cron
 
 Uji script backup secara manual terlebih dahulu:
 
