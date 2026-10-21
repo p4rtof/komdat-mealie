@@ -242,7 +242,7 @@ Lalu buka crontab dengan `crontab -e` dan tambahkan baris berikut (ganti `<nama-
 Artinya backup dijalankan **setiap hari pukul 02.00** (mengikuti jam server), dan hasilnya dicatat di `backup.log`. Periksa jadwal yang aktif dengan:
 
 ```bash
-crontab -l
+crontab -l | grep -v '^#'
 ```
 ![Hasil crontab -l yang menampilkan jadwal backup pukul 02.00](Screenshots/Otomatisasi/crontab-aktif.png)
 
