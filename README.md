@@ -231,7 +231,7 @@ Uji script backup secara manual terlebih dahulu:
 ~/mealie/mealie-backup.sh
 ls -lh ~/mealie-backup
 ```
-![Hasil uji backup manual](screenshots/backup-manual.png)
+![Hasil uji backup manual](Screenshots/Otomatisasi/backup-manual.png)
 
 Lalu buka crontab dengan `crontab -e` dan tambahkan baris berikut (ganti `<nama-pengguna>` dengan nama pengguna di server):
 
