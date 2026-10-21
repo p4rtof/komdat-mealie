@@ -25,8 +25,8 @@
 - [Arsitektur dan kebutuhan sistem](#arsitektur-dan-kebutuhan-sistem)
 - [Instalasi](#instalasi)
 - [Konfigurasi dan hasil pengujian](#konfigurasi-dan-hasil-pengujian)
-- [Cara Pemakaian](#cara-pemakaian)
 - [Otomatisasi](#otomatisasi)
+- [Cara Pemakaian](#cara-pemakaian)
 
 ## Tentang Mealie
 
@@ -190,8 +190,6 @@ Pengaturan pengguna dan hak akses tersedia melalui menu administrasi. Pada pengu
 ![Pengaturan pengguna](https://github.com/user-attachments/assets/0c31e1a6-c813-40e1-9d67-bc0b4378d40f)
 
 ![Halaman Site Settings](https://github.com/user-attachments/assets/72e26c39-f9ea-4579-8a31-2792211f5a82)
-
-## Otomatisasi
 
 ## Otomatisasi
 
