@@ -207,6 +207,7 @@ cd ~/mealie
 chmod +x mealie-manage.sh mealie-backup.sh
 ./mealie-manage.sh
 ```
+![Tampilan menu mealie-manage.sh](Screenshots/Otomatisasi/menu-mealie.png)
 
 Menu yang tersedia:
 
@@ -242,6 +243,7 @@ Artinya backup dijalankan **setiap hari pukul 02.00** (mengikuti jam server), da
 ```bash
 crontab -l
 ```
+![Hasil crontab -l yang menampilkan jadwal backup pukul 02.00](Screenshots/Otomatisasi/crontab-aktif.png)
 
 ### Catatan
 
