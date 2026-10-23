@@ -395,6 +395,7 @@ Berdasarkan hasil analisis, Mealie memiliki sejumlah kelebihan dan kekurangan ya
 - Resep yang tersimpan di server tidak dapat diakses jika server atau koneksi ke server mengalami gangguan.
 - Pembaruan aplikasi perlu dikelola sendiri. Perubahan versi dapat memerlukan penyesuaian atau migrasi database.
 - Hasil impor resep melalui URL perlu diperiksa kembali karena keberhasilannya bergantung pada dukungan dan struktur situs sumber.
+- Mealie belum mendukung seluruh pilihan bahasa, sehingga pengguna perlu menyesuaikan penggunaan aplikasi dengan bahasa yang tersedia.
 - Untuk penggunaan dengan banyak pengguna atau fitur pencarian tertentu, pengguna perlu mempertimbangkan konfigurasi dan kebutuhan database, termasuk PostgreSQL.
 
 ### Perbandingan Mealie, Tandoor, dan KitchenOwl
