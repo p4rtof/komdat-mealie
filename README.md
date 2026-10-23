@@ -70,10 +70,10 @@ cd ~/mealie
 
 ### 3. Buat konfigurasi Docker Compose
 
-Buat file `compose.yaml`:
+Buat file `docker-compose.yaml`:
 
 ```bash
-nano compose.yaml
+nano docker-compose.yaml
 ```
 
 Isi file dengan konfigurasi berikut:
