@@ -27,6 +27,9 @@
 - [Konfigurasi dan hasil pengujian](#konfigurasi-dan-hasil-pengujian)
 - [Otomatisasi](#otomatisasi)
 - [Cara Pemakaian](#cara-pemakaian)
+- [Pembahasan](#Pembahasan)
+- [Kesimpulan](#Kesimpulan)
+- [Referensi](#Referensi)
 
 ## Tentang Mealie
 
