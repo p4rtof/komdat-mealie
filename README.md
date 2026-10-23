@@ -79,24 +79,29 @@ nano compose.yaml
 Isi file dengan konfigurasi berikut:
 
 ```yaml
+version: "3"
+
 services:
   mealie:
-    image: ghcr.io/mealie-recipes/mealie:v3.28.0
+    image: ghcr.io/mealie-recipes/mealie:latest
     container_name: mealie
     restart: unless-stopped
     ports:
-      - "9925:9000"
+      - "9000:9000"
+    volumes:
+      - ./data:/app/data/
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jakarta
+      - BASE_URL=https://mealie.fatihost.web.id
+      - BRANDING_NAME=Resep Kita
+      - API_DOCS=false
+      - LOG_LEVEL=debug
     deploy:
       resources:
         limits:
           memory: 1000M
-    volumes:
-      - ./data:/app/data
-    environment:
-      ALLOW_SIGNUP: "true"
-      PUID: 1000
-      PGID: 1000
-      TZ: Asia/Jakarta
 ```
 
 Port `9925` adalah port pada server, sedangkan `9000` adalah port di dalam container. Data aplikasi disimpan pada direktori `./data`.
@@ -122,11 +127,31 @@ Jika Nginx Proxy Manager berada di server yang berbeda, gunakan alamat IP server
 
 ## Konfigurasi dan hasil pengujian
 
+Mealie dikonfigurasi di dua tempat:
+
+* **File `docker-compose.yml`** untuk pengaturan server: port, penyimpanan data, batas memori, dan variabel lingkungan. File ini dibaca saat container dimulai, sehingga setiap perubahan diterapkan dengan perintah berikut. Data aplikasi tetap aman karena tersimpan di volume.
+
+  ```
+  $ docker compose up -d
+  ```
+
+* **Menu admin di aplikasi** untuk pengaturan aplikasi, seperti pengguna dan hak akses. Perubahan di sini langsung berlaku tanpa memulai ulang container.
+
+| Pengaturan | Fungsi |
+|---|---|
+| `image` | Versi Mealie yang dijalankan. `latest` berarti rilis terbaru. |
+| `container_name` | Nama container agar mudah dipanggil. |
+| `restart: unless-stopped` | Container otomatis berjalan kembali saat Docker atau server dimulai ulang atau saat terjadi crash, kecuali jika container dihentikan secara manual oleh pengguna. |
+| `ports` | Format `port-host:port-container`. Angka kiri adalah pintu di server, angka kanan adalah pintu di dalam container. |
+| `volumes` | Penyimpanan permanen tempat data resep dan akun disimpan. |
+| `ALLOW_SIGNUP` | Pendaftaran tanpa token. Bawaan Mealie `false`, kita memakai `true`. |
+| `PUID` dan `PGID` | Pemilik file data. Bawaan `911`, kita memakai `1000` agar sesuai dengan pengguna di server. |
+| `TZ` | Zona waktu server. Bawaan `UTC`, kita memakai `Asia/Jakarta`. |
+| `BASE_URL` | Alamat dasar aplikasi untuk notifikasi dan alamat callback OIDC. Bawaan `http://localhost:9000`, kita memakai domain aplikasi (https://mealie.fatihost.web.id). |
+
 ### Port aplikasi
 
-Port host dapat dipetakan ke port internal Mealie `9000`. Contohnya, konfigurasi proyek ini menggunakan `9925:9000`, sehingga port yang dituju dari host atau proxy adalah `9925`. Jika port host diubah, gunakan port host yang baru saat mengakses aplikasi.
-
-Pada percobaan awal, port host diubah menjadi `8080` sementara port container tetap `9000`. Bukti percobaan:
+Port host dapat diubah tanpa mengubah port internal Mealie. Pada pengujian, konfigurasi `8080:9000` membuat aplikasi dapat diakses melalui `localhost:8080`, sedangkan `localhost:9000` tidak lagi dapat dibuka.
 
 ![Pemetaan port pada percobaan awal](https://github.com/user-attachments/assets/0eaf78c7-4dba-4e4d-85f2-213d2aa6df63)
 
@@ -136,19 +161,9 @@ Pada percobaan awal, port host diubah menjadi `8080` sementara port container te
 
 Konfigurasi Compose menggunakan bind mount `./data:/app/data` agar data aplikasi disimpan di direktori `data` pada server dan tetap tersedia setelah container dibuat ulang.
 
-Pengujian persistensi sebelumnya dilakukan dengan named volume. Gambar berikut merupakan bukti dari pengujian tersebut; konfigurasi yang digunakan saat ini menyimpan data di `./data`.
-
-![Pengujian penyimpanan data](https://github.com/user-attachments/assets/609a2e80-c0d6-4359-ac2c-174e933ead7c)
-
-![Data tetap tersedia setelah container dijalankan ulang](https://github.com/user-attachments/assets/16cc26a3-fef4-4313-a02d-aa5fb31a7d9b)
-
 ### Kebijakan restart
 
 Container menggunakan `restart: unless-stopped`, sehingga Docker akan mencoba menjalankannya kembali setelah berhenti, kecuali container dihentikan secara manual.
-
-Pengujian awal menggunakan `restart: always`:
-
-![Pengujian restart otomatis](https://github.com/user-attachments/assets/febe2827-a9ee-45d1-a902-8b6af2c9d837)
 
 ### Batas memori
 
@@ -160,24 +175,23 @@ deploy:
     limits:
       memory: 1000M
 ```
-
-![Konfigurasi batas memori](https://github.com/user-attachments/assets/27867e83-82af-4132-8abc-8d014af80064)
+<img width="1511" height="86" alt="Screenshot 2026-10-23 202525" src="https://github.com/user-attachments/assets/5670ee4b-a635-4b9f-ae7f-bdc45bbfec5c" /> 
 
 ### Logging
 
-`LOG_LEVEL=debug` digunakan saat pengujian untuk menampilkan log yang lebih terperinci. Pada hasil pengujian, jumlah baris log berubah dari 158 menjadi 169.
+`LOG_LEVEL=debug` digunakan saat pengujian untuk menampilkan log yang lebih terperinci selama tahap pengujian dan evaluasi deployment domain untuk memudahkan melakukan pelacakan kendala (*trouleshooting*).
 
-![Log sebelum pengaturan debug](https://github.com/user-attachments/assets/584151e9-a381-4553-94c6-ceae2e55a599)
+Untuk memantau log aktivitas sistem secara langsung (*real-time*) selama masa pengujian, jalankan perintah berikut di terminal server: 
 
-![Log setelah pengaturan debug](https://github.com/user-attachments/assets/64ccae93-0de8-4141-9697-d21476770f59)
+```
+docker compose logs -f
+```
 
 ### Dokumentasi API
 
 Pada pengujian, dokumentasi API dinonaktifkan menggunakan `API_DOCS=False`. Halaman `/docs` kemudian menampilkan `404 Not Found`.
 
-![Dokumentasi API sebelum dinonaktifkan](https://github.com/user-attachments/assets/6c266e11-b305-44f1-bbd2-68f1ac8546e3)
-
-![Dokumentasi API setelah dinonaktifkan](https://github.com/user-attachments/assets/72a110fc-baea-4da9-878b-58f0d191bb2f)
+<img width="1919" height="1068" alt="Screenshot 2026-10-23 225245" src="https://github.com/user-attachments/assets/66d3e43d-8d31-484f-a01f-5057f041ab56" />
 
 ### Kustomisasi nama aplikasi
 
@@ -189,9 +203,9 @@ Pada pengujian, dokumentasi API dinonaktifkan menggunakan `API_DOCS=False`. Hala
 
 Pengaturan pengguna dan hak akses tersedia melalui menu administrasi. Pada pengujian, pengguna non-admin tidak dapat membuka halaman **Site Settings**.
 
-![Pengaturan pengguna](https://github.com/user-attachments/assets/0c31e1a6-c813-40e1-9d67-bc0b4378d40f)
+<img width="1323" height="797" alt="Screenshot 2026-10-23 230147" src="https://github.com/user-attachments/assets/f38c2b95-3cb3-4c24-9caa-eb9afa211482" />
 
-![Halaman Site Settings](https://github.com/user-attachments/assets/72e26c39-f9ea-4579-8a31-2792211f5a82)
+<img width="1325" height="799" alt="Screenshot 2026-10-23 230302" src="https://github.com/user-attachments/assets/7cc7cb41-de52-4939-a7cf-44d5f993d439" /> 
 
 ## Otomatisasi
 
