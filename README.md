@@ -375,3 +375,49 @@ Organizers menyediakan halaman Categories, Tags, dan Tools untuk mengatur inform
 
 ![Tools](./Screenshots/Fitur%20Pendukung/mealie-organizers-tools.png)
 
+## Pembahasan
+
+Berdasarkan hasil analisis, Mealie memiliki sejumlah kelebihan dan kekurangan yang dapat menjadi bahan pertimbangan bagi pengguna.
+
+### Kelebihan
+
+- Mendukung penyimpanan data secara *self-hosted*, sehingga pengelola dapat menentukan lokasi penyimpanan serta mengatur akses terhadap data resep dan rencana menu.
+- Memfasilitasi impor resep dari situs web yang kompatibel melalui URL.
+- Menyediakan fitur *meal planner* dan pembuatan daftar belanja berdasarkan resep.
+- Mendukung beberapa pengguna dalam satu grup, dengan pembagian hak akses, sehingga resep dan rencana makan dapat dikelola bersama.
+- Menyediakan REST API yang dapat dimanfaatkan untuk mengintegrasikan atau mengotomatiskan pengelolaan resep, rencana makan, dan daftar belanja.
+
+### Kekurangan
+
+- Pengguna perlu menyiapkan server dan Docker karena Mealie dijalankan secara *self-hosted*, bukan dipasang seperti aplikasi desktop biasa.
+- Resep yang tersimpan di server tidak dapat diakses jika server atau koneksi ke server mengalami gangguan.
+- Pembaruan aplikasi perlu dikelola sendiri. Perubahan versi dapat memerlukan penyesuaian atau migrasi database.
+- Hasil impor resep melalui URL perlu diperiksa kembali karena keberhasilannya bergantung pada dukungan dan struktur situs sumber.
+- Untuk penggunaan dengan banyak pengguna atau fitur pencarian tertentu, pengguna perlu mempertimbangkan konfigurasi dan kebutuhan database, termasuk PostgreSQL.
+
+### Perbandingan Mealie, Tandoor, dan KitchenOwl
+
+| Aspek | Mealie | Tandoor | KitchenOwl |
+|---|---|---|---|
+| **Fokus utama** | Pengelolaan resep, perencanaan menu, dan daftar belanja secara *self-hosted*. | Pengelolaan resep dan perencanaan makanan. | Daftar belanja dan pengelolaan resep, dengan fitur pencatatan pengeluaran rumah tangga. |
+| **Pengelolaan resep** | Mendukung kategori, tag, pencarian, dan pengeditan resep. Fitur *fuzzy search* memerlukan PostgreSQL. | Mendukung pengelompokan resep dalam *cookbook*, kategorisasi, dan berbagi resep. | Mendukung pengelolaan resep serta penggunaan resep dalam daftar belanja. |
+| **Impor resep** | Mendukung impor dari URL situs yang kompatibel dan input resep secara manual. | Mendukung impor dari situs yang menyediakan data resep dalam format seperti JSON-LD atau microdata, serta impor koleksi dari sejumlah aplikasi pengelola resep. | Mendukung impor resep melalui URL menurut informasi yang tersedia; dukungannya dapat berbeda sesuai versi. |
+| **Perencanaan menu** | Menyediakan *meal planner* untuk menyusun menu berdasarkan jadwal. | Mendukung perencanaan beberapa waktu makan dalam satu hari. | Menyediakan fitur *meal plan* untuk merencanakan menu. |
+| **Daftar belanja** | Item dapat ditambahkan langsung atau dibuat dari resep, termasuk bahan-bahannya. | Daftar belanja dapat dibuat dari rencana makan atau resep. | Mendukung sinkronisasi daftar belanja antar pengguna dan penggunaan offline secara terbatas. |
+| **Self-hosting** | Dapat dijalankan menggunakan Docker Compose. | Dapat dijalankan secara lokal atau di belakang *reverse proxy*, termasuk menggunakan Docker. | Dapat dijalankan menggunakan Docker dengan layanan web dan backend. |
+
+### Kesimpulan
+
+- **Mealie** mengutamakan kemudahan dalam mengelola resep, mengimpor resep dari web, merencanakan menu, dan membuat daftar belanja. Aplikasi ini sesuai bagi pengguna yang ingin mengelola kebutuhan memasak secara terpusat melalui server sendiri.
+- **Tandoor** menawarkan fitur pengelolaan resep dan perencanaan makanan yang lebih beragam, termasuk pengelompokan resep dalam *cookbook* dan pengaturan koleksi.
+- **KitchenOwl** berfokus pada kolaborasi daftar belanja dan pengelolaan kebutuhan rumah tangga. Aplikasi ini menyediakan sinkronisasi antar pengguna serta fitur pencatatan pengeluaran.
+
+## Referensi
+
+1. [Dokumentasi Tandoor Recipes](https://docs.tandoor.dev/) — Tandoor
+2. [Home - Mealie](https://mealie.io/) — Mealie
+3. [Mealie Review 2026: Honest Pros, Cons & Who It's For](https://cooklang.org/blog/40-mealie-review/) — Cooklang
+4. [Mealie vs Tandoor Recipes: Which to Self-Host? (2026)](https://selfhostatlas.com/compare/mealie-vs-tandoor) — SelfHost Atlas
+5. [Mealie vs Tandoor: Which Self-Hosted Recipe Manager to Run](https://homelabhaven.com/posts/self-hosted-recipes-mealie-tandoor/) — Homelab Haven
+6. [Tandoor vs Mealie vs KitchenOwl: Choosing a Self-Hosted Recipe Manager in 2026](https://cooklang.org/blog/42-tandoor-vs-mealie-vs-kitchenowl/) — Cooklang
+7. [TomBursch/kitchenowl](https://github.com/tombursch/kitchenowl) — GitHub
