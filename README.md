@@ -28,7 +28,6 @@
 - [Otomatisasi](#otomatisasi)
 - [Cara Pemakaian](#cara-pemakaian)
 - [Pembahasan](#Pembahasan)
-- [Kesimpulan](#Kesimpulan)
 - [Referensi](#Referensi)
 
 ## Tentang Mealie
